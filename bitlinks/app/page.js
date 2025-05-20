@@ -92,10 +92,11 @@ export default function Home() {
       <div className="flex justify-center max-w-md w-full">
         <Image
           src="/img.svg"
-          height={10}
-          width={10}
+          height={400}
+          width={400}
           alt="Link sharing illustration"
           className="max-w-md w-full"
+          priority 
         />
       </div>
       <p className="text-gray-500 text-sm text-center">
