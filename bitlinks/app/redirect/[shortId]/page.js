@@ -5,7 +5,7 @@ export async function GET(request, { params }) {
 
   try {
     const client = await clientPromise;
-    const db = client.db('BitLinks');
+    const db = client.db('bitlinks');
     const collection = db.collection('urls');
 
     const result = await collection.findOne({ shortId });
