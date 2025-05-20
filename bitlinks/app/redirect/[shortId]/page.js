@@ -5,7 +5,7 @@ export async function GET(request, { params }) {
 
   try {
     const client = await clientPromise;
-    const db = client.db('bitlinks');
+    const db = client.db('BitLinks');
     const collection = db.collection('urls');
 
     const result = await collection.findOne({ shortId });
@@ -21,3 +21,4 @@ export async function GET(request, { params }) {
     return new Response('Internal Server Error', { status: 500 });
   }
 }
+//err
