@@ -19,7 +19,7 @@ const Navbar = () => {
                     </svg>
                 </button>
                 <a
-                    href="https://github.com"
+                    href="https://github.com/shrutika-gawande/bitlinks/tree/main/bitlinks"
                     target="_blank"
                     rel="noopener noreferrer"
                 >

@@ -7,25 +7,35 @@ export default function Home() {
   const [customShort, setCustomShort] = useState("");
   const [shortUrl, setShortUrl] = useState("");
   const [isShortened, setIsShortened] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleShorten = async () => {
-    if (!originalUrl) return;
+    if (!originalUrl || loading) return;
 
-    const res = await fetch("/api/shorten", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        url: originalUrl,
-        shorturl: customShort || undefined,
-      }),
-    });
+    setLoading(true); // disable button
 
-    const data = await res.json();
-    if (res.ok) {
-      setShortUrl(data.shortUrl);
-      setIsShortened(true);
-    } else {
-      alert(data.message || "Failed to shorten URL");
+    try {
+      const res = await fetch("/api/shorten", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          url: originalUrl,
+          shorturl: customShort || undefined,
+        }),
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        setShortUrl(data.shortUrl);
+        setIsShortened(true);
+      } else {
+        alert(data.message || "Failed to shorten URL");
+      }
+    } catch (error) {
+      console.error("Error shortening URL:", error);
+      alert("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false); // re-enable button
     }
   };
 
@@ -65,10 +75,13 @@ export default function Home() {
           />
           <button
             onClick={handleShorten}
-            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-full"
+            disabled={loading}
+            className={`bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-full ${loading ? "opacity-50 cursor-not-allowed" : ""
+              }`}
           >
-            Shorten URL
+            {loading ? "Shortening..." : "Shorten URL"}
           </button>
+
         </>
       ) : (
         <>
@@ -96,7 +109,7 @@ export default function Home() {
           width={400}
           alt="Link sharing illustration"
           className="max-w-md w-full"
-          priority 
+          priority
         />
       </div>
       <p className="text-gray-500 text-sm text-center">
