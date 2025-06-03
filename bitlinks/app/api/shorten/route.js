@@ -26,7 +26,7 @@ export async function POST(req) {
       createdAt: new Date(),
     });
 
-    const fullShortUrl = `http://localhost:3000/${shortId}`;
+    const fullShortUrl = `https://bitkinks.vercel.app/${shortId}`;
     return NextResponse.json({ message: 'Short link created', shortUrl: fullShortUrl }, { status: 201 });
 
   } catch (error) {
