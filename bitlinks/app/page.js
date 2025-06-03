@@ -91,7 +91,7 @@ export default function Home() {
             value={shortUrl}
             readOnly
             onClick={() => window.open(shortUrl, '_blank')}
-            className="input-box underline text-white"
+            className="input-box underline"
           />
           <button
             onClick={handleReset}
