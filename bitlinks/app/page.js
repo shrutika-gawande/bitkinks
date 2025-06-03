@@ -19,9 +19,10 @@ export default function Home() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          url: originalUrl,
-          shorturl: customShort || undefined,
+          originalUrl,
+          shortId: customShort || undefined,
         }),
+
       });
 
       const data = await res.json();
@@ -48,10 +49,10 @@ export default function Home() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-black text-white space-y-6 px-4">
-      <h1 className="text-4xl font-bold text-center mb-6">
+      <h1 className="text-2xl sm:text-4xl font-bold text-center mb-6">
         Shorten. <span className="text-blue-500">Share.</span> Track.
 
-        <p className="text-gray-400 font-normal mt-3 text-sm sm:text-l">
+        <p className="text-gray-400 font-normal mt-3 text-xs sm:text-sm sm:text-l">
           Create short, beautiful, and trackable URLs for your links — fast, reliable, and secure.
         </p>
       </h1>
@@ -62,14 +63,14 @@ export default function Home() {
           <input
             type="text"
             placeholder="Paste your long URL here..."
-            className="px-4 py-3 mb-4 w-full max-w-md rounded-full bg-black border border-white text-white"
+            className="input-box"
             value={originalUrl}
             onChange={(e) => setOriginalUrl(e.target.value)}
           />
           <input
             type="text"
             placeholder="Enter custom short name (optional)..."
-            className="px-4 py-3 mb-4 w-full max-w-md rounded-full bg-black border border-white text-white"
+            className="input-box"
             value={customShort}
             onChange={(e) => setCustomShort(e.target.value)}
           />
@@ -90,7 +91,7 @@ export default function Home() {
             value={shortUrl}
             readOnly
             onClick={() => window.open(shortUrl, '_blank')}
-            className="px-4 py-2 mb-4 w-full max-w-md rounded-full bg-black border border-white underline text-white"
+            className="input-box underline text-white"
           />
           <button
             onClick={handleReset}

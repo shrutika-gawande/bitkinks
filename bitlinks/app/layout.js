@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Bitlinks App",
+  title: "BitLinks",
   description: "URL_Shortner Application",
 };
 

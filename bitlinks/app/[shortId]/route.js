@@ -1,12 +1,13 @@
 import clientPromise from '@/lib/mongodb';
 
 export async function GET(request, { params }) {
-  const shortId = params.shortId;
+  const resolvedParams = await params;  // await params first
+  const shortId = resolvedParams.shortId;
 
   try {
     const client = await clientPromise;
-    const db = client.db('BitLinks');
-    const collection = db.collection('urls');
+    const db = client.db('bitlinks');
+    const collection = db.collection('links');
 
     const result = await collection.findOne({ shortId });
 
