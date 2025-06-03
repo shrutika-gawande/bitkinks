@@ -5,7 +5,7 @@ const Navbar = () => {
         <nav className="w-full px-6 py-4 bg-transparent flex items-center justify-between shadow-md">
             {/* Logo */}
             <div className="text-2xl font-bold text-white">
-                <span className="text-[#4d6fff]">Bit</span>
+                <span className="text-blue-500">Bit</span>
                 <span className="text-[#f8f1f5]">Links</span>
                 <sup className="text-sm text-white">®</sup>
             </div>
@@ -23,7 +23,7 @@ const Navbar = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    <button type="button" className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:outline-none shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-full text-sm sm:text-[16px] px-5 py-2.5 text-center me-2" >
+                    <button type="button" className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:outline-none shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-full text-sm sm:text-[16px] px-5 py-2.5 text-center" >
                         Github
                     </button>
                 </a>

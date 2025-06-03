@@ -49,10 +49,10 @@ export default function Home() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-black text-white space-y-6 px-4">
-      <h1 className="text-2xl sm:text-4xl font-bold text-center mb-6">
+      <h1 className="text-3xl sm:text-4xl font-bold text-center mb-6">
         Shorten. <span className="text-blue-500">Share.</span> Track.
 
-        <p className="text-gray-400 font-normal mt-3 text-xs sm:text-sm sm:text-l">
+        <p className="text-gray-400 font-normal mt-3 text-sm sm:text-l">
           Create short, beautiful, and trackable URLs for your links — fast, reliable, and secure.
         </p>
       </h1>
@@ -114,7 +114,7 @@ export default function Home() {
         />
       </div>
       <p className="text-gray-500 text-sm text-center">
-        BitLink makes sharing your links easier and smarter.
+        BitLinks make sharing your links easier and smarter.
       </p>
 
     </div>
